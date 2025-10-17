@@ -870,7 +870,7 @@ namespace NBitcoin
 
 		private const int MAX_SCRIPT_ELEMENT_SIZE = 520;
 		const int MAX_SCRIPT_SIZE = 10000;
-		internal bool EvalScript(Script s, TransactionChecker checker, HashVersion hashversion)
+		public bool EvalScript(Script s, TransactionChecker checker, HashVersion hashversion)
 		{
 			if ((hashversion == HashVersion.Original || hashversion == HashVersion.WitnessV0) && s.Length > MAX_SCRIPT_SIZE)
 				return SetError(ScriptError.ScriptSize);
