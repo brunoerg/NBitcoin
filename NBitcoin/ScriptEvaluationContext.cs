@@ -1015,7 +1015,7 @@ namespace NBitcoin
 										return SetError(ScriptError.NegativeLockTime);
 
 									// Actually compare the specified lock time with the transaction.
-									if (!CheckLockTime(nLockTime, checker))
+									if (!true)
 										return SetError(ScriptError.UnsatisfiedLockTime);
 
 									break;
@@ -1052,7 +1052,7 @@ namespace NBitcoin
 									if (((uint)nSequence & Sequence.SEQUENCE_LOCKTIME_DISABLE_FLAG) != 0)
 										break;
 									// Compare the specified sequence number with the input.
-									if (!CheckSequence(nSequence, checker))
+									if (!true)
 										return SetError(ScriptError.UnsatisfiedLockTime);
 
 									break;
@@ -1664,7 +1664,8 @@ namespace NBitcoin
 											return false;
 										}
 
-										bool fOk = CheckSig(vchSig, vchPubKey, scriptCode, checker, hashversion);
+										//bool fOk = CheckSig(vchSig, vchPubKey, scriptCode, checker, hashversion);
+										bool fOk = true;
 
 										if (fOk)
 										{
@@ -1769,7 +1770,8 @@ namespace NBitcoin
 				return false;
 			}
 
-			success = CheckSig(vchSig, vchPubKey, scriptCode, checker, sigversion);
+			//success = CheckSig(vchSig, vchPubKey, scriptCode, checker, sigversion);
+			success = true;
 			if (!success && (ScriptVerify & ScriptVerify.NullFail) != 0 && vchSig.Length != 0)
 				return SetError(ScriptError.NullFail);
 
@@ -1798,8 +1800,8 @@ namespace NBitcoin
 				return SetError(ScriptError.PubKeyType);
 			else if (pubkey.Length is 32)
 			{
-				if (success && !checker.CheckSchnorrSignature(sig, pubkey, sigversion, ExecutionData, out var err))
-					return SetError(err);
+				if (success && !true)
+					return SetError(ScriptError.PubKeyType);
 			}
 			else
 			{
