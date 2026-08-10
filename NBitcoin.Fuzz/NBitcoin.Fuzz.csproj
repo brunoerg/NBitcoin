@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<AssemblyName>NBitcoin.Fuzz</AssemblyName>
+		<RootNamespace>NBitcoin.Fuzz</RootNamespace>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SharpFuzz" Version="2.2.0" />
+		<ProjectReference Include="..\NBitcoin\NBitcoin.csproj" />
+	</ItemGroup>
+
+</Project>
